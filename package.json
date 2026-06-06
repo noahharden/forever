@@ -1,0 +1,56 @@
+{
+  "name": "v2ray-relay-pro",
+  "version": "10.1.0",
+  "description": "Professional V2Ray/VLESS Relay Service - Free Forever on Vercel Hobby Plan (100 GB/month) with Zero Suspension Risk and Automatic Quota Management",
+  "main": "api/p4r34m.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'No build step required for Edge Functions'",
+    "deploy": "vercel --prod",
+    "deploy:preview": "vercel",
+    "test": "echo 'Tests coming soon'",
+    "lint": "echo 'Linting coming soon'"
+  },
+  "keywords": [
+    "v2ray",
+    "vless",
+    "proxy",
+    "relay",
+    "vercel",
+    "edge-functions",
+    "free",
+    "hobby-plan",
+    "zero-suspension",
+    "professional",
+    "streaming",
+    "secure",
+    "quantum",
+    "high-performance"
+  ],
+  "author": {
+    "name": "Bob AI Assistant",
+    "email": "bob@example.com",
+    "url": "https://github.com/yourusername"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/v2ray-relay-pro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/v2ray-relay-pro/issues"
+  },
+  "homepage": "https://github.com/yourusername/v2ray-relay-pro#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^33.0.0"
+  },
+  "vercel": {
+    "framework": null,
+    "buildCommand": null,
+    "outputDirectory": "public"
+  }
+}
