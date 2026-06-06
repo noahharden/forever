@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional V2Ray Relay Service - Free Forever on Vercel Hobby Plan">
+    <meta name="keywords" content="v2ray, vless, proxy, relay, free, vercel">
+    <title>V2Ray Relay Pro - Free Professional Service</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --light: #f9fafb;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            min-height: 100vh;
+            color: var(--dark);
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+        
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .card h2 {
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .feature-desc {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        
+        /* Info Box */
+        .info-box {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #4b5563;
+        }
+        
+        .info-value {
+            color: var(--primary);
+            font-family: 'Courier New', monospace;
+            font-weight: 500;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Alert */
+        .alert {
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+        
+        .alert-success {
+            background: #d1fae5;
+            border-left: 4px solid var(--success);
+            color: #065f46;
+        }
+        
+        .alert-warning {
+            background: #fef3c7;
+            border-left: 4px solid var(--warning);
+            color: #92400e;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Loading */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <span>🚀</span>
+                <span>V2Ray Relay Pro</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#status">Status</a></li>
+                <li><a href="#docs">Docs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Professional V2Ray Relay Service</h1>
+        <p>Free Forever • Zero Suspension • 100 GB/Month FREE</p>
+        <div class="badges">
+            <span class="badge">✅ FREE Forever</span>
+            <span class="badge">🛡️ Zero Suspension</span>
+            <span class="badge">⚡ 1-2 MB/s</span>
+            <span class="badge">📊 100 GB/Month</span>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Live Stats -->
+        <div class="card">
+            <h2>📊 Live Performance Stats</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="uptime">--</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="requests">--</div>
+                    <div class="stat-label">Total Requests</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="successRate">--</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="status">
+                        <span class="pulse">🟢</span>
+                    </div>
+                    <div class="stat-label">Service Status</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quota Status -->
+        <div class="card">
+            <h2>📈 Monthly Quota (FREE 100 GB)</h2>
+            <div class="alert alert-success" id="quotaAlert">
+                <span>✅</span>
+                <div>
+                    <strong>Quota Status: Active</strong><br>
+                    <span id="quotaMessage">Loading quota information...</span>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-row">
+                    <span class="info-label">Used This Month</span>
+                    <span class="info-value" id="quotaUsed">-- GB</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Remaining</span>
+                    <span class="info-value" id="quotaRemaining">-- GB</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Total Quota</span>
+                    <span class="info-value">100 GB</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Usage Percentage</span>
+                    <span class="info-value" id="quotaPercentage">--%</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Current Month</span>
+                    <span class="info-value" id="quotaMonth">--</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Est. Hours Remaining</span>
+                    <span class="info-value" id="quotaHours">-- hours</span>
+                </div>
+            </div>
+            <div style="margin-top: 1rem; padding: 1rem; background: var(--light); border-radius: 10px;">
+                <strong>💡 Tip:</strong> With 1-2 MB/s speeds, you get approximately 30-40 hours of usage per month within the FREE 100 GB limit!
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="card" id="features">
+            <h2>✨ Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🆓</div>
+                    <div class="feature-title">FREE Forever</div>
+                    <div class="feature-desc">Runs on Vercel Hobby plan with zero costs, forever</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <div class="feature-title">Zero Suspension</div>
+                    <div class="feature-desc">Optimized to never exceed Hobby plan limits</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">Optimized Speed</div>
+                    <div class="feature-desc">1 MB/s upload, 2 MB/s download - FREE forever</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">Secure & Private</div>
+                    <div class="feature-desc">Quantum-level security with encryption</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <div class="feature-title">Real-time Monitoring</div>
+                    <div class="feature-desc">Live stats and health monitoring</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <div class="feature-title">Auto-Healing</div>
+                    <div class="feature-desc">Self-healing architecture for reliability</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Configuration -->
+        <div class="card" id="status">
+            <h2>⚙️ Service Configuration</h2>
+            <div class="info-box">
+                <div class="info-row">
+                    <span class="info-label">Service Status</span>
+                    <span class="info-value">🟢 Online</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Plan Type</span>
+                    <span class="info-value">Vercel Hobby (FREE)</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Upload Speed</span>
+                    <span class="info-value">1 MB/s (1.5 MB/s burst)</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Download Speed</span>
+                    <span class="info-value">2 MB/s (3 MB/s burst)</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Monthly Quota</span>
+                    <span class="info-value">100 GB (FREE)</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Concurrent Connections</span>
+                    <span class="info-value">50</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Rate Limit</span>
+                    <span class="info-value">100 req/min + 20 burst</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Suspension Risk</span>
+                    <span class="info-value">ZERO ✅</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Your Relay URL -->
+        <div class="card">
+            <h2>🔗 Your Relay Endpoint</h2>
+            <div class="alert alert-success">
+                <span>✅</span>
+                <div>
+                    <strong>Service is Active!</strong><br>
+                    Your relay is running and ready to use.
+                </div>
+            </div>
+            <div style="background: var(--light); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                <code id="relayUrl" style="font-size: 1.1rem; color: var(--primary); font-weight: 600;">Loading...</code>
+            </div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                <button class="btn btn-primary" onclick="copyUrl()">📋 Copy URL</button>
+                <button class="btn btn-secondary" onclick="checkHealth()">🏥 Health Check</button>
+            </div>
+        </div>
+
+        <!-- Important Notes -->
+        <div class="card" id="docs">
+            <h2>📚 Important Information</h2>
+            <div class="alert alert-warning">
+                <span>⚠️</span>
+                <div>
+                    <strong>Hobby Plan Optimized</strong><br>
+                    This service is specifically optimized for Vercel Hobby plan with conservative limits to ensure zero suspension risk and forever working status.
+                </div>
+            </div>
+            <div class="features-grid" style="margin-top: 1.5rem;">
+                <div class="feature-card">
+                    <div class="feature-title">✅ Perfect For</div>
+                    <div class="feature-desc">Personal use, HD streaming, web browsing, social media, file downloads</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">⚠️ Limitations</div>
+                    <div class="feature-desc">10s timeout, 50 concurrent, 100 req/min - all within Hobby limits</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">🔒 Security</div>
+                    <div class="feature-desc">Quantum encryption, secure headers, rate limiting protection</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+                <span>🚀</span>
+                <span>V2Ray Relay Pro</span>
+            </div>
+            <p style="color: #6b7280; margin-bottom: 1rem;">
+                Professional V2Ray Relay Service - Free Forever on Vercel Hobby Plan
+            </p>
+            <div class="footer-links">
+                <a href="/health">Health Status</a>
+                <a href="https://vercel.com" target="_blank">Powered by Vercel</a>
+                <a href="https://github.com" target="_blank">GitHub</a>
+            </div>
+            <p style="color: #9ca3af; font-size: 0.9rem; margin-top: 1rem;">
+                Made with Bob - Latest Version (2026-06-06)<br>
+                XHTTPRelayECO v10.0 QUANTUM HOBBY SAFE
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Display current URL
+        const relayUrl = window.location.origin + '/p4r34m';
+        document.getElementById('relayUrl').textContent = relayUrl;
+        
+        // Copy URL function
+        function copyUrl() {
+            const url = document.getElementById('relayUrl').textContent;
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✓ Copied!';
+                btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                }, 2000);
+            }).catch(err => {
+                alert('Failed to copy: ' + err);
+            });
+        }
+        
+        // Check health
+        async function checkHealth() {
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.innerHTML = '⏳ Checking... <span class="loading"></span>';
+            btn.disabled = true;
+            
+            try {
+                const response = await fetch('/health');
+                const data = await response.json();
+                
+                // Update stats
+                document.getElementById('uptime').textContent = formatUptime(data.uptime);
+                document.getElementById('requests').textContent = data.stats.totalRequests.toLocaleString();
+                document.getElementById('successRate').textContent = data.stats.successRate;
+                
+                // Update quota info
+                updateQuotaDisplay(data.quota);
+                
+                btn.textContent = '✓ Healthy!';
+                btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                btn.style.color = 'white';
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                    btn.style.color = '';
+                    btn.disabled = false;
+                }, 2000);
+            } catch (error) {
+                btn.textContent = '✗ Failed';
+                btn.style.background = '#ef4444';
+                btn.style.color = 'white';
+                console.error('Health check failed:', error);
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                    btn.style.color = '';
+                    btn.disabled = false;
+                }, 2000);
+            }
+        }
+        
+        // Format uptime
+        function formatUptime(ms) {
+            const seconds = Math.floor(ms / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const days = Math.floor(hours / 24);
+            
+            if (days > 0) return `${days}d ${hours % 24}h`;
+            if (hours > 0) return `${hours}h ${minutes % 60}m`;
+            if (minutes > 0) return `${minutes}m`;
+            return `${seconds}s`;
+        }
+        
+        // Update quota display
+        function updateQuotaDisplay(quota) {
+            if (!quota) return;
+            
+            document.getElementById('quotaUsed').textContent = quota.used;
+            document.getElementById('quotaRemaining').textContent = quota.remaining;
+            document.getElementById('quotaPercentage').textContent = quota.percentage;
+            document.getElementById('quotaMonth').textContent = quota.currentMonth;
+            document.getElementById('quotaHours').textContent = quota.estimatedHoursRemaining + ' hours';
+            
+            const quotaAlert = document.getElementById('quotaAlert');
+            const quotaMessage = document.getElementById('quotaMessage');
+            
+            if (quota.exceeded) {
+                quotaAlert.className = 'alert alert-warning';
+                quotaAlert.querySelector('span').textContent = '⚠️';
+                quotaMessage.innerHTML = '<strong>Quota Exceeded!</strong><br>You have used all 100 GB for this month. Service will resume on the 1st of next month.';
+            } else if (quota.warning) {
+                quotaAlert.className = 'alert alert-warning';
+                quotaAlert.querySelector('span').textContent = '⚠️';
+                quotaMessage.innerHTML = `<strong>Warning:</strong> You have used ${quota.percentage} of your monthly quota. ${quota.remaining} remaining.`;
+            } else {
+                quotaAlert.className = 'alert alert-success';
+                quotaAlert.querySelector('span').textContent = '✅';
+                quotaMessage.innerHTML = `You have used ${quota.used} of 100 GB this month. ${quota.remaining} remaining.`;
+            }
+        }
+        
+        // Auto-load health on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                fetch('/health')
+                    .then(r => r.json())
+                    .then(data => {
+                        document.getElementById('uptime').textContent = formatUptime(data.uptime);
+                        document.getElementById('requests').textContent = data.stats.totalRequests.toLocaleString();
+                        document.getElementById('successRate').textContent = data.stats.successRate;
+                        
+                        // Update quota display
+                        if (data.quota) {
+                            updateQuotaDisplay(data.quota);
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Auto health check failed:', err);
+                        document.getElementById('uptime').textContent = 'N/A';
+                        document.getElementById('requests').textContent = '0';
+                        document.getElementById('successRate').textContent = '100%';
+                    });
+            }, 500);
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
